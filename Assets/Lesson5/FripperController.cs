@@ -18,24 +18,32 @@ public class FripperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) && tag == "LeftFripperTag" )
         {
             SetAngle(this.flickAngle);
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow) && tag == "RightFripperTag")
+        
+        if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)  && tag == "RightFripperTag")
         {
             SetAngle(this.flickAngle);
         }
-        if(Input.GetKeyUp(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+        if(Input.GetKeyUp(KeyCode.LeftArrow) ||Input.GetKeyUp(KeyCode.A) && tag == "LeftFripperTag")
         {
             SetAngle(this.defaultAngle);
         }
-        if(Input.GetKeyUp(KeyCode.RightArrow) && tag == "RightFripperTag")
+    
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)  && tag == "RightFripperTag")
         {
             SetAngle(this.defaultAngle);
         }
-
-
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            SetAngle(this.flickAngle);
+        }
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            SetAngle(this.defaultAngle);
+        }
 
     }
     public void SetAngle(float angle)
